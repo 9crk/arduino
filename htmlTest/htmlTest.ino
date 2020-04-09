@@ -38,7 +38,7 @@ uint8_t readReg(uint8_t reg) {
     if (! Wire.available()) return -1;
     return (i2cread());
 }
-int readBytes(uint8_t reg,uint8_t buf,int len){
+int readBytes(uint8_t reg,uint8_t *buf,int len){
     Wire.beginTransmission(_i2caddr);
     i2cwrite(reg);
     Wire.endTransmission(false); // MMA8451 + friends uses repeated start!!
